@@ -5,7 +5,7 @@ import styles from './styles/Pagination.module.css'
 const Pagination = () =>{
 //state
 const[data,setData] = useState([]);
-const[loading,setLoading] = useState(true);
+// const[loading,setLoading] = useState(true);
 const[pgCount,setPgCount]=useState(1);
 
 const itemsPerPage = 10;
@@ -18,10 +18,7 @@ useEffect(()=>{
             setData(response.data)
             console.log("response:",response)
         } catch (error) {
-            console.error("Couldn't fetch the Data",error);
-        }
-        finally{
-            setLoading(false)
+            alert("failed to fetch Data")
         }
     }
 
@@ -36,9 +33,9 @@ const currentData = data.slice(
     startIndex + itemsPerPage
 )
 
-if(loading) {
-    return <p>Loading Data...</p>
-}
+// if(loading) {
+//     return <p>Loading Data...</p>
+// }
 
 const handleNext = () =>{
     if(pgCount < totalPages){
@@ -56,12 +53,14 @@ const handlePrev = ()=>{
         <>
         <h1>Employee Data Table</h1>
         <table>
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
             </tr>
+            </thead>
 
             <tbody>
             {currentData.map((item) =>(
