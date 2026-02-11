@@ -5,6 +5,7 @@ import styles from "./styles/Pagination.module.css";
 const Pagination = () => {
   const [data, setData] = useState([]);
   const [pgCount, setPgCount] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   const itemsPerPage = 10;
 
@@ -17,6 +18,9 @@ const Pagination = () => {
         setData(response.data);
       } catch (error) {
         alert("failed to fetch data");
+      }
+      finally{
+        setLoading(false);
       }
     };
 
@@ -42,6 +46,9 @@ const Pagination = () => {
       setPgCount((prev) => prev - 1);
     }
   };
+   if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
