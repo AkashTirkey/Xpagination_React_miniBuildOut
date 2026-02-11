@@ -1,0 +1,25 @@
+table{
+    width: 100%;
+
+}
+
+table, th, td{
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+    text-align: left;
+    font-size: 14px;
+    /* max-width: 520px; */
+}
+
+th{
+    background-color: #408b60;
+    padding: 1em;
+}
+
+.btn{
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+}
